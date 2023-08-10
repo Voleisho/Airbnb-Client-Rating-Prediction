@@ -134,3 +134,59 @@ They are robust to noise and capable of recognizing unclear and nonlinear relati
 Decision tree classifiers can tend to create overly complex trees that fit training data well but perform poorly on new data.
 They may be sensitive to small changes in the dataset, requiring retraining to maintain predictive accuracy.
 Scaling features may pose challenges, necessitating multiple trials and tree variations for optimal results.
+
+## Application of the Algorithm in Practice
+
+#### Initial Model
+
+To begin, we created two models using both the original and reduced-dimensional training datasets, without altering the classifier's hyperparameters. We calculated the accuracy of the models using the 'sklearn' library's accuracy calculation function. The results showed that our initial models correctly classified 72% and 0.67% of the values, respectively.
+
+### Search for Optimal Hyperparameters
+
+For the search for optimal parameters, we chose one of the most popular algorithms - GridSearchCV (Grid Search Cross-Validation).
+
+Given that the decision tree algorithm allows for modifications of several hyperparameters, we selected five key parameters as described in the previous section.
+
+The hyperparameters provided to the GridSearchCV algorithm were:
+
+**Max Depth**
+**Min Samples per Leaf**
+**Max Features**
+**Criterion**
+**Min Samples per Split**
+
+We obtained results where the best hyperparameter values remained the same for both the original dataset and the reduced-dimension dataset.
+
+| Max Depth | Min Samples per Leaf | Max Features | Criterion | Min Samples per Split |
+|-----------|----------------------|--------------|-----------|----------------------|
+| 5         | 4                    | log2         | gini      | 8                    |
+
+
+With these hyperparameters, the models showed an improvement of 8% and 1% compared to the initial models that used default parameters. We will discuss the classification quality results along with the evaluation methods for quality.
+
+### Methods for Evaluating Classification Quality
+
+## Cross-Validation Method
+
+To assess the quality of this model, the cross-validation method was employed. This approach divides the dataset into five equal parts, using each part as a testing set while the rest are used as training sets.
+
+Our average cross-validation result using the model with the original dataset is 0.71, indicating that the decision tree classifier with the selected parameters correctly classified approximately 71.2% of the test dataset. Meanwhile, the second model using the reduced-dimension dataset performed slightly lower, achieving 67%.
+
+## Holdout Validation Method
+
+Holdout validation is another way to assess the quality of the decision tree classifier. The first classifier with the chosen parameters accurately classified about 69% of the test dataset using this method. This result differs from the cross-validation outcomes, as cross-validation evaluates the classifier's quality for each dataset split, whereas holdout validation can be sensitive to how data is divided between training and testing sets.
+
+Results for the classifier using the reduced-dimension dataset were the same as those obtained through cross-validation - correctly classifying 0.67% of the values.
+
+These validation methods provide insight into the classifier's performance and its ability to generalize to new data.
+
+### Confusion Matrix
+
+These results represent the confusion matrix outcomes. The purpose of this matrix is to assess the classifier's performance by comparing combinations of actual and predicted values.
+
+The results indicate that the first classifier, when using the original dataset, struggled to recognize zeros: out of 87 true zero values, only 52 were correctly classified as zeros. Another 35 true zero values were incorrectly classified as ones. Additionally, we observe that the classifier made many errors in recognizing ones: out of 224 true one value instances, only 162 were correctly classified as ones, while the remaining 62 were incorrectly classified as zeros.
+
+However, when comparing the confusion matrix results of the first model with those of the second model, the first one performed better in classifying ones but worse when predicting zeros, often predicting ones instead.
+
+Therefore, based on these results, the classifier's performance is not very satisfactory, as there are numerous errors present.
+
