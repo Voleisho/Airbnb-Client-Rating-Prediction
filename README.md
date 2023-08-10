@@ -24,24 +24,24 @@ This project isn't just about building a model—it's about gaining insights. As
 The Barcelona Airbnb dataset contains various details about properties available for short-term stays in Barcelona. It includes features like price, room type, capacity, cleanliness rating and more. This dataset enables us to explore factors that impact guest experiences and ratings.
 
 #### Features:
-File - airbnb_data.csv
-"realSum" - total Airbnb listing price (numeric)
-"room_type" - type of room offered (private room, shared room, entire home/apt) (categorical)
-"person_capacity" - maximum number of accommodated residents (numeric)
-"host_is_superhost" - whether the host is a superhost (ordinal 0 or 1)
-"multi" - whether multiple rooms are included in the listing (binary 0-1)
-"biz" - whether the listing is intended for business purposes (binary 0-1)
-"cleanliness_rating" - cleanliness rating (numeric)
-"guest_satisfaction_overall" - overall guest satisfaction rating (numeric)
-"bedrooms" - number of bedrooms (numeric)
-"dist" - distance to the city center (numeric)
-"metro_dist" - distance to the metro (numeric)
-"attr_index" - attractiveness index (numeric)
-"attr_index_norm" - normalized attractiveness indexes
-"rest_index" - restaurant index (numeric)
-"rest_index_norm" - normalized restaurant index (numeric)
-"lng" - longitude coordinate (numeric)
-"lat" - latitude coordinate (numeric)
+File - airbnb_data.csv.
+"realSum" - total Airbnb listing price (numeric).
+"room_type" - type of room offered (private room, shared room, entire home/apt) (categorical).
+"person_capacity" - maximum number of accommodated residents (numeric).
+"host_is_superhost" - whether the host is a superhost (ordinal 0 or 1).
+"multi" - whether multiple rooms are included in the listing (binary 0-1).
+"biz" - whether the listing is intended for business purposes (binary 0-1).
+"cleanliness_rating" - cleanliness rating (numeric).
+"guest_satisfaction_overall" - overall guest satisfaction rating (numeric).
+"bedrooms" - number of bedrooms (numeric).
+"dist" - distance to the city center (numeric).
+"metro_dist" - distance to the metro (numeric).
+"attr_index" - attractiveness index (numeric).
+"attr_index_norm" - normalized attractiveness indexes.
+"rest_index" - restaurant index (numeric).
+"rest_index_norm" - normalized restaurant index (numeric).
+"lng" - longitude coordinate (numeric).
+"lat" - latitude coordinate (numeric).
 
 #** Research Objective and Goals
 
@@ -82,3 +82,55 @@ The second table provides a parallel analysis, focusing on properties in Group 1
 | Min    | 69.59   | 2.00            | 6.00              | 0.00     | 0.12 | 0.01       | 98.66      | 167.93     | 2.11 | 41.35 |
 | Median | 215.28  | 2.00            | 10.00             | 1.00     | 1.78 | 0.38       | 390.76     | 792.92     | 2.17 | 41.39 |
 | Max    | 1770.66 | 6.00            | 10.00             | 3.00     | 8.06 | 2.40       | 2934.13    | 4542.75    | 2.22 | 41.46 |
+
+
+### The following metrics are used for evaluating model suitability:
+
+**Accuracy:** This measures the overall correctness of the model's predictions. It calculates the ratio of correctly classified examples to the total number of examples. However, relying solely on accuracy may not be sufficient when there is class imbalance or when the cost of false positives and false negatives differs.
+
+**Precision:** This metric quantitatively evaluates the model's ability to correctly identify positive examples. It calculates the ratio of true positive results to the sum of true positive results and false positive results.
+
+**Recall:** This metric measures the model's ability to find all positive examples. It calculates the ratio of true positive examples to the sum of true positive examples and false negative examples.
+
+**F1 Score:** The F1 score combines the precision metric and recall into a single indicator that balances both metrics. It is the harmonic mean of precision and recall, resulting in a single value that indicates the overall performance of the model.
+
+### Classification Using Decision Tree Algorithm
+
+#### What is a Decision Tree Algorithm?
+
+A decision tree is a supervised learning method that can be used for both classification and regression tasks, although it is most commonly chosen for solving classification problems. It is a tree-like classifier where internal nodes represent features of a dataset, branches depict decision rules, and each leaf node corresponds to an outcome.
+
+#### Key Hyperparameters
+
+**Max Depth:** Specifies the maximum depth of the decision tree. A large value may lead to overfitting and reduced generalization, while a small value may result in underfitting.
+
+**Min Samples per Leaf:** Sets the minimum number of samples required in a leaf node. A high value may simplify the tree but potentially lead to underfitting, while a low value may do the opposite.
+
+**Min Samples per Split:** Sets the minimum number of samples required to split a node into new nodes.
+
+**Criterion:** Determines the function the decision tree uses to decide when to stop growing the tree.
+
+**Max Features:** Specifies the number of features that can be considered for splitting. A higher value may provide more information to the model.
+
+#### Algorithm Stages
+
+In decision trees, to predict the class of a given dataset, the algorithm starts from the root node and compares attribute values with real dataset values. Based on comparisons, it traverses the tree and moves to the next node.
+
+The process continues until a leaf node is reached. The algorithm can be better understood using the following steps:
+
+1. Start with the root node containing the entire dataset.
+2. Find the best attribute using an attribute selection mechanism.
+3. Divide the dataset into subsets with the best attribute values.
+4. Create a decision tree node with the best attribute.
+5. Recursively create new decision trees for subsets in step 3. Continue until you can't classify values further, resulting in a leaf node.
+
+#### Advantages and Disadvantages
+
+**Advantages:**
+Decision tree classifiers are fast and efficient, handling large datasets and requiring minimal resources.
+They are robust to noise and capable of recognizing unclear and nonlinear relationships between features.
+
+**Disadvantages:**
+Decision tree classifiers can tend to create overly complex trees that fit training data well but perform poorly on new data.
+They may be sensitive to small changes in the dataset, requiring retraining to maintain predictive accuracy.
+Scaling features may pose challenges, necessitating multiple trials and tree variations for optimal results.
