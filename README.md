@@ -24,24 +24,24 @@ This project isn't just about building a model—it's about gaining insights. As
 The Barcelona Airbnb dataset contains various details about properties available for short-term stays in Barcelona. It includes features like price, room type, capacity, cleanliness rating and more. This dataset enables us to explore factors that impact guest experiences and ratings.
 
 ## Features:
-File - airbnb_data.csv.
-"realSum" - total Airbnb listing price (numeric).
-"room_type" - type of room offered (private room, shared room, entire home/apt) (categorical).
-"person_capacity" - maximum number of accommodated residents (numeric).
-"host_is_superhost" - whether the host is a superhost (ordinal 0 or 1).
-"multi" - whether multiple rooms are included in the listing (binary 0-1).
-"biz" - whether the listing is intended for business purposes (binary 0-1).
-"cleanliness_rating" - cleanliness rating (numeric).
-"guest_satisfaction_overall" - overall guest satisfaction rating (numeric).
-"bedrooms" - number of bedrooms (numeric).
-"dist" - distance to the city center (numeric).
-"metro_dist" - distance to the metro (numeric).
-"attr_index" - attractiveness index (numeric).
-"attr_index_norm" - normalized attractiveness indexes.
-"rest_index" - restaurant index (numeric).
-"rest_index_norm" - normalized restaurant index (numeric).
-"lng" - longitude coordinate (numeric).
-"lat" - latitude coordinate (numeric).
+- File - airbnb_data.csv.
+- "realSum" - total Airbnb listing price (numeric).
+- "room_type" - type of room offered (private room, shared room, entire home/apt) (categorical).
+- "person_capacity" - maximum number of accommodated residents (numeric).
+- "host_is_superhost" - whether the host is a superhost (ordinal 0 or 1).
+- "multi" - whether multiple rooms are included in the listing (binary 0-1).
+- "biz" - whether the listing is intended for business purposes (binary 0-1).
+- "cleanliness_rating" - cleanliness rating (numeric).
+- "guest_satisfaction_overall" - overall guest satisfaction rating (numeric).
+- "bedrooms" - number of bedrooms (numeric).
+- "dist" - distance to the city center (numeric).
+- "metro_dist" - distance to the metro (numeric).
+- "attr_index" - attractiveness index (numeric).
+- "attr_index_norm" - normalized attractiveness indexes.
+- "rest_index" - restaurant index (numeric).
+- "rest_index_norm" - normalized restaurant index (numeric).
+- "lng" - longitude coordinate (numeric).
+- "lat" - latitude coordinate (numeric).
 
 # Research Objective and Goals
 
@@ -49,11 +49,11 @@ File - airbnb_data.csv.
 Classify the original data and two-dimensional data.
 
 ## Goals:
-Choose a variable with two classes for classification.
-Examine descriptive statistics for the data and the dependent variable classes.
-Perform classification using decision tree algorithm.
-Visualize results with ROC curves.
-Calculate model statistics.
+- Choose a variable with two classes for classification.
+- Examine descriptive statistics for the data and the dependent variable classes.
+- Perform classification using decision tree algorithm.
+- Visualize results with ROC curves.
+- Calculate model statistics.
 
 
 # Comparison of Data Characteristics: Group 0 (Rating < 90) vs Group 1 (Rating > 90)
@@ -103,15 +103,15 @@ A decision tree is a supervised learning method that can be used for both classi
 
 ## Key Hyperparameters
 
-**Max Depth:** Specifies the maximum depth of the decision tree. A large value may lead to overfitting and reduced generalization, while a small value may result in underfitting.
+ - **Max Depth:** Specifies the maximum depth of the decision tree. A large value may lead to overfitting and reduced generalization, while a small value may result in underfitting.
 
-**Min Samples per Leaf:** Sets the minimum number of samples required in a leaf node. A high value may simplify the tree but potentially lead to underfitting, while a low value may do the opposite.
+- **Min Samples per Leaf:** Sets the minimum number of samples required in a leaf node. A high value may simplify the tree but potentially lead to underfitting, while a low value may do the opposite.
 
-**Min Samples per Split:** Sets the minimum number of samples required to split a node into new nodes.
+- **Min Samples per Split:** Sets the minimum number of samples required to split a node into new nodes.
 
-**Criterion:** Determines the function the decision tree uses to decide when to stop growing the tree.
+- **Criterion:** Determines the function the decision tree uses to decide when to stop growing the tree.
 
-**Max Features:** Specifies the number of features that can be considered for splitting. A higher value may provide more information to the model.
+- **Max Features:** Specifies the number of features that can be considered for splitting. A higher value may provide more information to the model.
 
 ## Algorithm Stages
 
@@ -128,13 +128,13 @@ The process continues until a leaf node is reached. The algorithm can be better 
 ## Advantages and Disadvantages
 
 ### Advantages:
-Decision tree classifiers are fast and efficient, handling large datasets and requiring minimal resources.
-They are robust to noise and capable of recognizing unclear and nonlinear relationships between features.
+- Decision tree classifiers are fast and efficient, handling large datasets and requiring minimal resources.
+- They are robust to noise and capable of recognizing unclear and nonlinear relationships between features.
 
 ### Disadvantages:
-Decision tree classifiers can tend to create overly complex trees that fit training data well but perform poorly on new data.
-They may be sensitive to small changes in the dataset, requiring retraining to maintain predictive accuracy.
-Scaling features may pose challenges, necessitating multiple trials and tree variations for optimal results.
+- Decision tree classifiers can tend to create overly complex trees that fit training data well but perform poorly on new data.
+- They may be sensitive to small changes in the dataset, requiring retraining to maintain predictive accuracy.
+- Scaling features may pose challenges, necessitating multiple trials and tree variations for optimal results.
 
 # Application of the Algorithm in Practice
 
@@ -213,11 +213,13 @@ Furthermore, the "F1-score" fluctuates between 52% and 77%, suggesting that the 
 
 "Accuracy" is an overall metric indicating how many percent of events were correctly classified by the model. In this case, the accuracy is 69%, meaning that the first model correctly classifies only 69% of all events. The second model performs slightly better, with an accuracy of 0.70%.
 
+**Classification metrics results using original data** 
 |   | Precision | Recall | F1-Score | Support | Accuracy |
 |---|-----------|--------|----------|---------|----------|
-| 0 |   0.60    |  0.46  |   0.52   |   114   | 0.69     |
-| 1 |   0.72    |  0.82  |   0.77   |   197   |          |
+| 0 |   0.83    |  0.54  |   0.66   |   114   | 0.79     |
+| 1 |   0.78    |  0.93  |   0.85   |   197   |          |
 
+**Classification metrics results using two-dimensional data** 
 |           | precision | recall | f1-score | support | Accuracy |
 |-----------|-----------|--------|----------|---------|----------|
 |       0   |    0.58   |  0.66  |   0.61   |   114   | 0.70     |
@@ -228,8 +230,9 @@ In summary, the overall quality of the models is not good, as there are many inc
 
 ## ROC Curve
 
-Visualizing the graphical representation, the ROC curve illustrates how classifier predictions change based on the decision threshold (refer to Figure 8). AUC is an evaluation metric that measures how well a classifier can distinguish between positive and negative values. Our AUC result is 0.7016 and 0.6944, when using the classifier for original data and two-dimensional data. This indicates that the classifier has a moderate ability to distinguish between the two classes. The results are satisfactory, but not sufficiently high to consider the models highly successful.
+Visualizing the graphical representation, the ROC curve illustrates how classifier predictions change based on the decision threshold (refer to Figure 8). AUC is an evaluation metric that measures how well a classifier can distinguish between positive and negative values. Our AUC result is 0.7389 and 0.6893, when using the classifier for original data and two-dimensional data. This indicates that the classifier has a moderate ability to distinguish between the two classes. The results are satisfactory, but not sufficiently high to consider the models highly successful.
 
-![image](https://github.com/Voleisho/Airbnb-Client-Rating-Prediction/assets/141240910/a302c2b9-01cf-4009-9276-83ffb1a90eaa)
+![image](https://github.com/Voleisho/Airbnb-Client-Rating-Prediction/assets/141240910/8b545263-c34d-4d2a-b0e5-a97549c8376a)
+
 
 ![image](https://github.com/Voleisho/Airbnb-Client-Rating-Prediction/assets/141240910/22b346dc-ebf0-4186-a7f2-cfc15a46f4c1)
