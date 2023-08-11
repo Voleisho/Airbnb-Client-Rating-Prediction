@@ -195,3 +195,34 @@ However, when comparing the confusion matrix results of the first model with tho
 
 Therefore, based on these results, the classifier's performance is not very satisfactory, as there are numerous errors present.
 
+## Classification Metrics
+
+These results represent classification model quality metrics used to assess the accuracy and performance of the model using both original and reduced-dimension data.
+
+According to the "Precision" metric, in 60% of cases where the model predicted a negative event (value 0), the prediction was correct, while in 40% of cases, the predictions were incorrect. Even fewer accurate zeros were predicted using the two-dimension data. However, more accurate ones were predicted compared to using the original data.
+
+Using the original dataset, the "Recall" value indicates that in 46% of cases where the value is truly 0, the model correctly identified it, while in 54% of cases, the predictions were incorrect. The results for the original and reduced-dimension datasets significantly differ in this aspect.
+
+Furthermore, the "F1-score" fluctuates between 52% and 77%, suggesting that the model's performance is moderately satisfactory.
+
+"Accuracy" is an overall metric indicating how many percent of events were correctly classified by the model. In this case, the accuracy is 69%, meaning that the first model correctly classifies only 69% of all events. The second model performs slightly better, with an accuracy of 0.70%.
+
+|   | Precision | Recall | F1-Score | Support | Accuracy |
+|---|-----------|--------|----------|---------|----------|
+| 0 |   0.60    |  0.46  |   0.52   |   114   | 0.69     |
+| 1 |   0.72    |  0.82  |   0.77   |   197   |          |
+
+|           | Precision |  Recall  | F1-Score | Support | Accuracy |
+|-----------|-----------|----------|----------|---------|----------|
+|    0      |    0.59   |   0.66   |   0.62   |   114   |   0.70   |                                                 
+|    1      |    0.79   |   0.73   |   0.76   |   197   |          |    
+
+In summary, the overall quality of the models is not good, as there are many incorrect predictions and the accuracy is moderate.
+
+### ROC Curve
+
+Visualizing the graphical representation, the ROC curve illustrates how classifier predictions change based on the decision threshold (refer to Figure 8). AUC is an evaluation metric that measures how well a classifier can distinguish between positive and negative values. Our AUC result is 0.7016 and 0.6944, when using the classifier for original data and two-dimensional data. This indicates that the classifier has a moderate ability to distinguish between the two classes. The results are satisfactory, but not sufficiently high to consider the models highly successful.
+
+![image](https://github.com/Voleisho/Airbnb-Client-Rating-Prediction/assets/141240910/a302c2b9-01cf-4009-9276-83ffb1a90eaa)
+
+![image](https://github.com/Voleisho/Airbnb-Client-Rating-Prediction/assets/141240910/22b346dc-ebf0-4186-a7f2-cfc15a46f4c1)
