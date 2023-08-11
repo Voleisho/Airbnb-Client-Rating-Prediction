@@ -95,9 +95,9 @@ The second table provides a parallel analysis, focusing on properties in Group 1
 
 **F1 Score:** The F1 score combines the precision metric and recall into a single indicator that balances both metrics. It is the harmonic mean of precision and recall, resulting in a single value that indicates the overall performance of the model.
 
-### Classification Using Decision Tree Algorithm
+# Classification Using Decision Tree Algorithm
 
-# What is a Decision Tree Algorithm?
+## What is a Decision Tree Algorithm?
 
 A decision tree is a supervised learning method that can be used for both classification and regression tasks, although it is most commonly chosen for solving classification problems. It is a tree-like classifier where internal nodes represent features of a dataset, branches depict decision rules, and each leaf node corresponds to an outcome.
 
