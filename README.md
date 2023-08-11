@@ -1,11 +1,11 @@
-**Introduction: Predicting Airbnb Ratings using Decision Tree Analysis**
+# Introduction: Predicting Airbnb Ratings using Decision Tree Analysis
 
 Welcome to my project, where I dive into the world of data analysis and prediction with a focus on Airbnb ratings. As a student, I've taken on the challenge of exploring how Decision Tree classifiers can help us anticipate whether an Airbnb client will give a rating above or below 90. This endeavor is an essential part of my portfolio, showcasing my skills and passion for data-driven insights.
 
-**What's the Project About?**
+### What's the Project About?
 In this repository, I've chosen to work with Barcelona Airbnb data, examining various factors that might influence client ratings. These factors range from the type of room and its capacity to the cleanliness rating and even a restaurant index. By analyzing this dataset, I aim to create a predictive model using Decision Trees that can help hosts understand guest satisfaction and tailor their offerings accordingly.
 
-**The Decision Tree Approach:**
+### The Decision Tree Approach:
 I've taken a step-by-step approach to build and fine-tune the Decision Tree model:
 1. **Data Preparation:** I've carefully cleaned and organized the data, ensuring it's ready for analysis.
 2. **Feature Selection:** I've chosen the most important features that can affect client ratings, simplifying the model while retaining its effectiveness.
@@ -13,17 +13,17 @@ I've taken a step-by-step approach to build and fine-tune the Decision Tree mode
 4. **Parameter Optimization:** I've used GridSearchCV to find the best parameters for the model, ensuring optimal performance.
 5. **Evaluation:** I've thoroughly assessed the model's accuracy and effectiveness in predicting ratings.
 
-**Comparing Two-Dimensional Data:**
+### Comparing Two-Dimensional Data:
 As an extra step, I've explored a unique technique. I've transformed the data into a two-dimensional representation using t-SNE, enabling a visual comparison of the original and reduced-dimensional datasets. I've then repeated the Decision Tree process on both datasets to understand how this impacts the model's predictions.
 
-**Why It Matters:**
+### Why It Matters:
 This project isn't just about building a model—it's about gaining insights. As a student, I'm excited to showcase my ability to use data analysis and machine learning to solve real-world problems. Predicting Airbnb ratings has practical implications for hosts and provides a tangible way to understand the power of data-driven decision-making.
 
-### Data
+# Data 
 
 The Barcelona Airbnb dataset contains various details about properties available for short-term stays in Barcelona. It includes features like price, room type, capacity, cleanliness rating and more. This dataset enables us to explore factors that impact guest experiences and ratings.
 
-#### Features:
+## Features:
 File - airbnb_data.csv.
 "realSum" - total Airbnb listing price (numeric).
 "room_type" - type of room offered (private room, shared room, entire home/apt) (categorical).
@@ -43,11 +43,12 @@ File - airbnb_data.csv.
 "lng" - longitude coordinate (numeric).
 "lat" - latitude coordinate (numeric).
 
-#** Research Objective and Goals
+# Research Objective and Goals
 
-**Research Objective:** Classify the original data and reduced-dimension data.
+## Research Objective: 
+Classify the original data and reduced-dimension data.
 
-**Goals:**
+## Goals:
 Choose a variable with two classes for classification.
 Examine descriptive statistics for the data and the dependent variable classes.
 Perform classification using three algorithms.
@@ -55,11 +56,11 @@ Visualize results with ROC curves.
 Calculate model statistics.
 
 
-### Comparison of Data Characteristics: Group 0 (Rating < 90) vs Group 1 (Rating > 90)
+# Comparison of Data Characteristics: Group 0 (Rating < 90) vs Group 1 (Rating > 90)
 
 In this analysis, we delve into two distinct groups of Airbnb property data based on client ratings in the captivating city of Barcelona. Group 0 comprises properties with client ratings below 90, while Group 1 includes properties that have received ratings exceeding 90. These tables provide a glimpse into the key attributes of each group, allowing us to uncover noteworthy differences between them.
 
-#### Group 0 (Rating < 90):
+## Group 0 (Rating < 90):
 The first table presents statistical summaries of attributes for properties within Group 0. These properties have received client ratings below 90, and the table sheds light on the characteristics associated with such ratings.
 
 |        | realSum | person_capacity | cleanliness_rating | bedrooms | dist | Metro_dist | Attr_index | Rest_index | lng | lat |
@@ -71,7 +72,7 @@ The first table presents statistical summaries of attributes for properties with
 | Median | 196.90  | 2.00            | 9.00               | 1.00     | 1.72 | 0.36       | 381.59     | 816.56     | 2.17 | 41.39 |
 | Max    | 6943.70 | 6.00            | 10.00              | 6.00     | 8.44 | 1.68       | 2065.07    | 2608.33    | 2.23 | 41.46 |
 
-#### Group 1 (Rating > 90):
+## Group 1 (Rating > 90):
 The second table provides a parallel analysis, focusing on properties in Group 1 with client ratings exceeding 90. By examining the attributes of this group, we aim to uncover the distinctive features associated with higher client ratings.
 
 |        | realSum | Person_capacity | Cleanliness_rating | bedrooms | dist | Metro_dist | Attr_index | Rest_index | lng | lat |
@@ -84,7 +85,7 @@ The second table provides a parallel analysis, focusing on properties in Group 1
 | Max    | 1770.66 | 6.00            | 10.00             | 3.00     | 8.06 | 2.40       | 2934.13    | 4542.75    | 2.22 | 41.46 |
 
 
-### The following metrics are used for evaluating model suitability:
+# The following metrics are used for evaluating model suitability:
 
 **Accuracy:** This measures the overall correctness of the model's predictions. It calculates the ratio of correctly classified examples to the total number of examples. However, relying solely on accuracy may not be sufficient when there is class imbalance or when the cost of false positives and false negatives differs.
 
@@ -96,11 +97,11 @@ The second table provides a parallel analysis, focusing on properties in Group 1
 
 ### Classification Using Decision Tree Algorithm
 
-#### What is a Decision Tree Algorithm?
+# What is a Decision Tree Algorithm?
 
 A decision tree is a supervised learning method that can be used for both classification and regression tasks, although it is most commonly chosen for solving classification problems. It is a tree-like classifier where internal nodes represent features of a dataset, branches depict decision rules, and each leaf node corresponds to an outcome.
 
-#### Key Hyperparameters
+## Key Hyperparameters
 
 **Max Depth:** Specifies the maximum depth of the decision tree. A large value may lead to overfitting and reduced generalization, while a small value may result in underfitting.
 
@@ -112,7 +113,7 @@ A decision tree is a supervised learning method that can be used for both classi
 
 **Max Features:** Specifies the number of features that can be considered for splitting. A higher value may provide more information to the model.
 
-#### Algorithm Stages
+## Algorithm Stages
 
 In decision trees, to predict the class of a given dataset, the algorithm starts from the root node and compares attribute values with real dataset values. Based on comparisons, it traverses the tree and moves to the next node.
 
@@ -124,24 +125,24 @@ The process continues until a leaf node is reached. The algorithm can be better 
 4. Create a decision tree node with the best attribute.
 5. Recursively create new decision trees for subsets in step 3. Continue until you can't classify values further, resulting in a leaf node.
 
-#### Advantages and Disadvantages
+## Advantages and Disadvantages
 
-**Advantages:**
+### Advantages:
 Decision tree classifiers are fast and efficient, handling large datasets and requiring minimal resources.
 They are robust to noise and capable of recognizing unclear and nonlinear relationships between features.
 
-**Disadvantages:**
+### Disadvantages:
 Decision tree classifiers can tend to create overly complex trees that fit training data well but perform poorly on new data.
 They may be sensitive to small changes in the dataset, requiring retraining to maintain predictive accuracy.
 Scaling features may pose challenges, necessitating multiple trials and tree variations for optimal results.
 
-## Application of the Algorithm in Practice
+# Application of the Algorithm in Practice
 
-#### Initial Model
+## Initial Model
 
 To begin, we created two models using both the original and reduced-dimensional training datasets, without altering the classifier's hyperparameters. We calculated the accuracy of the models using the 'sklearn' library's accuracy calculation function. The results showed that our initial models correctly classified 72% and 0.67% of the values, respectively.
 
-### Search for Optimal Hyperparameters
+## Search for Optimal Hyperparameters
 
 For the search for optimal parameters, we chose one of the most popular algorithms - GridSearchCV (Grid Search Cross-Validation).
 
@@ -164,15 +165,15 @@ We obtained results where the best hyperparameter values remained the same for b
 
 With these hyperparameters, the models showed an improvement of 8% and 1% compared to the initial models that used default parameters. We will discuss the classification quality results along with the evaluation methods for quality.
 
-### Methods for Evaluating Classification Quality
+## Methods for Evaluating Classification Quality
 
-## Cross-Validation Method
+### Cross-Validation Method
 
 To assess the quality of this model, the cross-validation method was employed. This approach divides the dataset into five equal parts, using each part as a testing set while the rest are used as training sets.
 
 Our average cross-validation result using the model with the original dataset is 0.71, indicating that the decision tree classifier with the selected parameters correctly classified approximately 71.2% of the test dataset. Meanwhile, the second model using the reduced-dimension dataset performed slightly lower, achieving 67%.
 
-## Holdout Validation Method
+### Holdout Validation Method
 
 Holdout validation is another way to assess the quality of the decision tree classifier. The first classifier with the chosen parameters accurately classified about 69% of the test dataset using this method. This result differs from the cross-validation outcomes, as cross-validation evaluates the classifier's quality for each dataset split, whereas holdout validation can be sensitive to how data is divided between training and testing sets.
 
@@ -180,7 +181,7 @@ Results for the classifier using the reduced-dimension dataset were the same as 
 
 These validation methods provide insight into the classifier's performance and its ability to generalize to new data.
 
-### Confusion Matrix
+## Confusion Matrix
 
 These results represent the confusion matrix outcomes. The purpose of this matrix is to assess the classifier's performance by comparing combinations of actual and predicted values.
 
@@ -219,7 +220,7 @@ Furthermore, the "F1-score" fluctuates between 52% and 77%, suggesting that the 
 
 In summary, the overall quality of the models is not good, as there are many incorrect predictions and the accuracy is moderate.
 
-### ROC Curve
+## ROC Curve
 
 Visualizing the graphical representation, the ROC curve illustrates how classifier predictions change based on the decision threshold (refer to Figure 8). AUC is an evaluation metric that measures how well a classifier can distinguish between positive and negative values. Our AUC result is 0.7016 and 0.6944, when using the classifier for original data and two-dimensional data. This indicates that the classifier has a moderate ability to distinguish between the two classes. The results are satisfactory, but not sufficiently high to consider the models highly successful.
 
