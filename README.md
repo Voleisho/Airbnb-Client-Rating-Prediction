@@ -46,12 +46,12 @@ File - airbnb_data.csv.
 # Research Objective and Goals
 
 ## Research Objective: 
-Classify the original data and reduced-dimension data.
+Classify the original data and two-dimensional data.
 
 ## Goals:
 Choose a variable with two classes for classification.
 Examine descriptive statistics for the data and the dependent variable classes.
-Perform classification using three algorithms.
+Perform classification using decision tree algorithm.
 Visualize results with ROC curves.
 Calculate model statistics.
 
@@ -140,7 +140,7 @@ Scaling features may pose challenges, necessitating multiple trials and tree var
 
 ## Initial Model
 
-To begin, we created two models using both the original and reduced-dimensional training datasets, without altering the classifier's hyperparameters. We calculated the accuracy of the models using the 'sklearn' library's accuracy calculation function. The results showed that our initial models correctly classified 72% and 0.67% of the values, respectively.
+To begin, we created two models using both the original and reduced-dimensional training datasets, without altering the classifier's hyperparameters. We calculated the accuracy of the models using the 'sklearn' library's accuracy calculation function. The results showed that our initial models correctly classified 72% and 0.69% of the values, respectively.
 
 ## Search for Optimal Hyperparameters
 
@@ -176,28 +176,28 @@ With these hyperparameters, the models showed an improvement of 8% and 1% compar
 
 To assess the quality of this model, the cross-validation method was employed. This approach divides the dataset into five equal parts, using each part as a testing set while the rest are used as training sets.
 
-Our average cross-validation result using the model with the original dataset is 0.71, indicating that the decision tree classifier with the selected parameters correctly classified approximately 71.2% of the test dataset. Meanwhile, the second model using the reduced-dimension dataset performed slightly lower, achieving 67%.
+Our average cross-validation result using both the model with the original dataset and the model with the two-dimensional dataset is 0.79, indicating that the decision tree classifier with the selected parameters correctly classified approximately 79% of the test dataset.
 
 ### Holdout Validation Method
 
-Holdout validation is another way to assess the quality of the decision tree classifier. The first classifier with the chosen parameters accurately classified about 69% of the test dataset using this method. This result differs from the cross-validation outcomes, as cross-validation evaluates the classifier's quality for each dataset split, whereas holdout validation can be sensitive to how data is divided between training and testing sets.
+Holdout validation is an alternative method used to assess the performance of the decision tree classifier. When applying this method to the classifier with the selected parameters and the original dataset, we achieved an accuracy of 79% in correctly classifying the test dataset. In contrast, when using the two-dimensional dataset, the accuracy achieved through holdout validation was 70%.
 
-Results for the classifier using the reduced-dimension dataset were the same as those obtained through cross-validation - correctly classifying 0.67% of the values.
-
-These validation methods provide insight into the classifier's performance and its ability to generalize to new data.
+It's important to note that these results provide insight into how well the classifier performs on new, unseen data. The model trained on the original dataset exhibited an accuracy of 79%, while the model using the two-dimensional dataset achieved an accuracy of 70% using holdout validation.
 
 ## Confusion Matrix
 
 These results represent the confusion matrix outcomes. The purpose of this matrix is to assess the classifier's performance by comparing combinations of actual and predicted values.
 
-The results indicate that the first classifier, when using the original dataset, struggled to recognize zeros: out of 87 true zero values, only 72 were correctly classified as zeros. Another 45 true zero values were incorrectly classified as ones. Additionally, we observe that the classifier made many errors in recognizing ones: out of 224 true one value instances, only 152 were correctly classified as ones, while the remaining 42 were incorrectly classified as zeros.
+In this case, the model using the original dataset classified 62 instances correctly as class 0, and 184 instances correctly as class 1. However, it made 52 instances where class 0 was predicted when it was actually class 1 (false positives), and 13 instances where class 1 was predicted when it was actually class 0 (false negatives).
 
-![image](https://github.com/Voleisho/Airbnb-Client-Rating-Prediction/assets/141240910/86701800-3e8f-42c4-999d-8c7976d4e4c9)
+![image](https://github.com/Voleisho/Airbnb-Client-Rating-Prediction/assets/141240910/2dd4e8cb-6b2c-4887-8c66-2d3592e1c374)
 
-However, when comparing the confusion matrix results of the first model with those of the second model, the first one performed better in classifying ones but worse when predicting zeros, often predicting ones instead.
+
+Similarly, for the model using the two-dimensional dataset, 75 instances were correctly classified as class 0, and 142 instances were correctly classified as class 1. However, there were 39 instances falsely predicted as class 0 (false positives) and 55 instances falsely predicted as class 1 (false negatives).
 
 ![image](https://github.com/Voleisho/Airbnb-Client-Rating-Prediction/assets/141240910/61683672-384b-4b7d-b575-5db940b49ba1)
 
+In terms of classifying Class 0, the model using the two-dimensional dataset performed slightly better with 75 true negatives (correct predictions of Class 0) compared to 62 true negatives by the model using the original dataset. However, in terms of classifying Class 1, the model using the original dataset performed better with 184 true positives compared to 142 true positives by the model using the two-dimensional dataset.
 
 Therefore, based on these results, the classifier's performance is not very satisfactory, as there are numerous errors present.
 
@@ -218,10 +218,11 @@ Furthermore, the "F1-score" fluctuates between 52% and 77%, suggesting that the 
 | 0 |   0.60    |  0.46  |   0.52   |   114   | 0.69     |
 | 1 |   0.72    |  0.82  |   0.77   |   197   |          |
 
-|           | Precision |  Recall  | F1-Score | Support | Accuracy |
-|-----------|-----------|----------|----------|---------|----------|
-|    0      |    0.59   |   0.66   |   0.62   |   114   |   0.70   |                                                 
-|    1      |    0.79   |   0.73   |   0.76   |   197   |          |    
+|           | precision | recall | f1-score | support | Accuracy |
+|-----------|-----------|--------|----------|---------|----------|
+|       0   |    0.58   |  0.66  |   0.61   |   114   | 0.70     |
+|       1   |    0.78   |  0.72  |   0.75   |   197   |          |
+ 
 
 In summary, the overall quality of the models is not good, as there are many incorrect predictions and the accuracy is moderate.
 
