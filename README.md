@@ -184,9 +184,14 @@ These validation methods provide insight into the classifier's performance and i
 
 These results represent the confusion matrix outcomes. The purpose of this matrix is to assess the classifier's performance by comparing combinations of actual and predicted values.
 
-The results indicate that the first classifier, when using the original dataset, struggled to recognize zeros: out of 87 true zero values, only 52 were correctly classified as zeros. Another 35 true zero values were incorrectly classified as ones. Additionally, we observe that the classifier made many errors in recognizing ones: out of 224 true one value instances, only 162 were correctly classified as ones, while the remaining 62 were incorrectly classified as zeros.
+The results indicate that the first classifier, when using the original dataset, struggled to recognize zeros: out of 87 true zero values, only 72 were correctly classified as zeros. Another 45 true zero values were incorrectly classified as ones. Additionally, we observe that the classifier made many errors in recognizing ones: out of 224 true one value instances, only 152 were correctly classified as ones, while the remaining 42 were incorrectly classified as zeros.
+
+![image](https://github.com/Voleisho/Airbnb-Client-Rating-Prediction/assets/141240910/86701800-3e8f-42c4-999d-8c7976d4e4c9)
 
 However, when comparing the confusion matrix results of the first model with those of the second model, the first one performed better in classifying ones but worse when predicting zeros, often predicting ones instead.
+
+![image](https://github.com/Voleisho/Airbnb-Client-Rating-Prediction/assets/141240910/7ed8934b-9c10-4f0d-968d-8bfe8c8acf18)
+
 
 Therefore, based on these results, the classifier's performance is not very satisfactory, as there are numerous errors present.
 
