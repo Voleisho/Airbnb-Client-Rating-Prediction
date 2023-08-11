@@ -150,11 +150,11 @@ Given that the decision tree algorithm allows for modifications of several hyper
 
 The hyperparameters provided to the GridSearchCV algorithm were:
 
-**Max Depth**
-**Min Samples per Leaf**
-**Max Features**
-**Criterion**
-**Min Samples per Split**
+- **Max Depth**
+- **Min Samples per Leaf**
+- **Max Features**
+- **Criterion**
+- **Min Samples per Split**
 
 We obtained results where the best hyperparameter values remained the same for both the original dataset and the reduced-dimension dataset.
 
