@@ -158,13 +158,15 @@ The hyperparameters provided to the GridSearchCV algorithm were:
 
 We obtained results where the best hyperparameter values remained the same for both the original dataset and the reduced-dimension dataset.
 
+**GridSearchCV results using original data**
 | Max Depth | Min Samples per Leaf | Max Features | Criterion | Min Samples per Split |
 |-----------|----------------------|--------------|-----------|----------------------|
-| 5         | 4                    | log2         | gini      | 8                    |
+| 3         | 1                    | None         | entropy   | 2                    |
 
+**GridSearchCV results using two-dimensional data**
 | Max Depth | Min Samples per Leaf | Max Features | Criterion | Min Samples per Split |
 |-----------|----------------------|--------------|-----------|----------------------|
-| None      | 4                    | log2         | gini      | 8                    |
+| None      | 3                    | log2         | log_loss  | 10                   |
 
 With these hyperparameters, the models showed an improvement of 8% and 1% compared to the initial models that used default parameters. We will discuss the classification quality results along with the evaluation methods for quality.
 
