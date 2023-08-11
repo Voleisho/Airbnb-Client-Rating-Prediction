@@ -162,6 +162,9 @@ We obtained results where the best hyperparameter values remained the same for b
 |-----------|----------------------|--------------|-----------|----------------------|
 | 5         | 4                    | log2         | gini      | 8                    |
 
+| Max Depth | Min Samples per Leaf | Max Features | Criterion | Min Samples per Split |
+|-----------|----------------------|--------------|-----------|----------------------|
+| None      | 4                    | log2         | gini      | 8                    |
 
 With these hyperparameters, the models showed an improvement of 8% and 1% compared to the initial models that used default parameters. We will discuss the classification quality results along with the evaluation methods for quality.
 
@@ -191,7 +194,7 @@ The results indicate that the first classifier, when using the original dataset,
 
 However, when comparing the confusion matrix results of the first model with those of the second model, the first one performed better in classifying ones but worse when predicting zeros, often predicting ones instead.
 
-![image](https://github.com/Voleisho/Airbnb-Client-Rating-Prediction/assets/141240910/7ed8934b-9c10-4f0d-968d-8bfe8c8acf18)
+![image](https://github.com/Voleisho/Airbnb-Client-Rating-Prediction/assets/141240910/61683672-384b-4b7d-b575-5db940b49ba1)
 
 
 Therefore, based on these results, the classifier's performance is not very satisfactory, as there are numerous errors present.
