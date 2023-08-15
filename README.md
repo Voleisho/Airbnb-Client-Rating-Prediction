@@ -140,7 +140,7 @@ The process continues until a leaf node is reached. The algorithm can be better 
 
 ## Initial Model
 
-To begin, we created two models using both the original and reduced-dimensional training datasets, without altering the classifier's hyperparameters. We calculated the accuracy of the models using the 'sklearn' library's accuracy calculation function. The results showed that our initial models correctly classified 72% and 0.69% of the values, respectively.
+To begin, we created two models using both the original and reduced-dimensional training datasets, without altering the classifier's hyperparameters. We calculated the accuracy of the models using the 'sklearn' library's accuracy calculation function. The results showed that our initial models correctly classified 72% and 69% of the values, respectively.
 
 ## Search for Optimal Hyperparameters
 
