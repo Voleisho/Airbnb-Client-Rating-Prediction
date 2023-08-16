@@ -1,4 +1,4 @@
-4# Introduction: Predicting Airbnb Ratings using Decision Tree Analysis
+# Introduction: Predicting Airbnb Ratings using Decision Tree Analysis
 
 In this project, I'm exploring data analysis and prediction, focusing on Airbnb ratings. As a student, I'm looking into how Decision Tree classifiers can help predict if an Airbnb client will rate their experience above or below 90. This project is an important example of my skills and understanding how classifiers operate.
 
