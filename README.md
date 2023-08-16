@@ -1,6 +1,6 @@
-# Introduction: Predicting Airbnb Ratings using Decision Tree Analysis
+4# Introduction: Predicting Airbnb Ratings using Decision Tree Analysis
 
-Welcome to my project, where I dive into the world of data analysis and prediction with a focus on Airbnb ratings. As a student, I've taken on the challenge of exploring how Decision Tree classifiers can help us anticipate whether an Airbnb client will give a rating above or below 90. This endeavor is an essential part of my portfolio, showcasing my skills and passion for data-driven insights.
+In this project, I'm exploring data analysis and prediction, focusing on Airbnb ratings. As a student, I'm looking into how Decision Tree classifiers can help predict if an Airbnb client will rate their experience above or below 90. This project is an important example of my skills and understanding how classifiers operate.
 
 ### What's the Project About?
 In this repository, I've chosen to work with Barcelona Airbnb data, examining various factors that might influence client ratings. These factors range from the type of room and its capacity to the cleanliness rating and even a restaurant index. By analyzing this dataset, I aim to create a predictive model using Decision Trees that can help hosts understand guest satisfaction and tailor their offerings accordingly.
@@ -140,7 +140,7 @@ The process continues until a leaf node is reached. The algorithm can be better 
 
 ## Initial Model
 
-To begin, we created two models using both the original and reduced-dimensional training datasets, without altering the classifier's hyperparameters. We calculated the accuracy of the models using the 'sklearn' library's accuracy calculation function. The results showed that our initial models correctly classified 72% and 69% of the values, respectively.
+To begin, we created two models using both the original and reduced-dimensional training datasets, without altering the classifier's hyperparameters. We calculated the accuracy of the models using the 'sklearn' library's accuracy calculation function. The results showed that our initial models correctly classified 72% and 64% of the values, respectively.
 
 ## Search for Optimal Hyperparameters
 
@@ -161,14 +161,14 @@ We obtained results where the best hyperparameter values remained the same for b
 **GridSearchCV results using original data**
 | Max Depth | Min Samples per Leaf | Max Features | Criterion | Min Samples per Split |
 |-----------|----------------------|--------------|-----------|----------------------|
-| 3         | 1                    | None         | entropy   | 2                    |
+| ų         | 5                    | log2         | log_loss  | 9                    |
 
 **GridSearchCV results using two-dimensional data**
 | Max Depth | Min Samples per Leaf | Max Features | Criterion | Min Samples per Split |
 |-----------|----------------------|--------------|-----------|----------------------|
-| None      | 3                    | log2         | log_loss  | 10                   |
+| 10        | 1                    | None         | Gini      | 4                    |
 
-With these hyperparameters, the models showed an improvement of 8% and 1% compared to the initial models that used default parameters. We will discuss the classification quality results along with the evaluation methods for quality.
+With these hyperparameters, the models showed an improvement of 8% and 9% compared to the initial models that used default parameters. We will discuss the classification quality results along with the evaluation methods for quality.
 
 ## Methods for Evaluating Classification Quality
 
@@ -176,63 +176,65 @@ With these hyperparameters, the models showed an improvement of 8% and 1% compar
 
 To assess the quality of this model, the cross-validation method was employed. This approach divides the dataset into five equal parts, using each part as a testing set while the rest are used as training sets.
 
-Our average cross-validation result using both the model with the original dataset and the model with the two-dimensional dataset is 0.79, indicating that the decision tree classifier with the selected parameters correctly classified approximately 79% of the test dataset.
+The outcomes of our cross-validation analysis were as follows: the initial model utilizing the original dataset displayed a 75% accuracy, while the subsequent model employing the two-dimensional dataset achieved a 69% accuracy. 
 
 ### Holdout Validation Method
 
-Holdout validation is an alternative method used to assess the performance of the decision tree classifier. When applying this method to the classifier with the selected parameters and the original dataset, we achieved an accuracy of 79% in correctly classifying the test dataset. In contrast, when using the two-dimensional dataset, the accuracy achieved through holdout validation was 70%.
-
-It's important to note that these results provide insight into how well the classifier performs on new, unseen data. The model trained on the original dataset exhibited an accuracy of 79%, while the model using the two-dimensional dataset achieved an accuracy of 70% using holdout validation.
+An alternative approach called "holdout validation" was employed to evaluate the decision tree classifier's performance. Employing this technique on the classifier, coupled with the designated parameters and the original dataset, yielded a 73% accuracy in correctly categorizing the test dataset. Conversely, utilizing the two-dimensional dataset led to a 71% accuracy through the holdout validation method.
 
 ## Confusion Matrix
 
 These results represent the confusion matrix outcomes. The purpose of this matrix is to assess the classifier's performance by comparing combinations of actual and predicted values.
 
-In this case, the model using the original dataset classified 62 instances correctly as class 0, and 184 instances correctly as class 1. However, it made 52 instances where class 0 was predicted when it was actually class 1 (false positives), and 13 instances where class 1 was predicted when it was actually class 0 (false negatives).
+In this case, the model using the original dataset correctly identified 157 instances where the predictions matched the actual positive cases. Additionally, it accurately recognized 69 instances of negative cases. However, there were 45 instances where the model mistakenly classified positive cases when they were actually negative, and 40 instances where it missed identifying actual positive cases. 
 
-![image](https://github.com/Voleisho/Airbnb-Client-Rating-Prediction/assets/141240910/2dd4e8cb-6b2c-4887-8c66-2d3592e1c374)
+![image](https://github.com/Voleisho/Airbnb-Client-Rating-Prediction/assets/141240910/7809faa8-9567-4e88-9fe3-23d581eb7a6b)
 
 
-Similarly, for the model using the two-dimensional dataset, 75 instances were correctly classified as class 0, and 142 instances were correctly classified as class 1. However, there were 39 instances falsely predicted as class 0 (false positives) and 55 instances falsely predicted as class 1 (false negatives).
 
-![image](https://github.com/Voleisho/Airbnb-Client-Rating-Prediction/assets/141240910/61683672-384b-4b7d-b575-5db940b49ba1)
+Similarly, for the model using the two-dimensional dataset, 147 instances where the predictions aligned with the actual positive cases. Furthermore, it accurately recognized 74 instances of negative cases. However, there were 40 instances where the model erroneously classified positive cases when they were actually negative, and 50 instances where it failed to identify actual positive cases. These metrics are vital for assessing the classifier's precision, recall, and overall effectiveness in distinguishing between the two classes. Comparing these results with those of the first model could offer valuable insights into the impact of using the two-dimensional dataset on the model's performance.
 
-In terms of classifying Class 0, the model using the two-dimensional dataset performed slightly better with 75 true negatives (correct predictions of Class 0) compared to 62 true negatives by the model using the original dataset. However, in terms of classifying Class 1, the model using the original dataset performed better with 184 true positives compared to 142 true positives by the model using the two-dimensional dataset.
 
+![image](https://github.com/Voleisho/Airbnb-Client-Rating-Prediction/assets/141240910/e1bb3500-f0f9-476a-98fd-84eb0e367b07)
+
+
+Based on the confusion matrix comparison, both models exhibit strengths and weaknesses. Model 1 demonstrates better performance in terms of true positives and false negatives, indicating its proficiency in identifying actual positive cases. On the other hand, Model 2 excels in true negatives and false positives, implying it's better at recognizing negative cases. The choice between these models depends on the specific goal of the analysis: whether minimizing false positives (Model 2) or false negatives (Model 1) is more critical. Additionally, these results emphasize the impact of dataset dimensions on the model's ability to classify instances accurately.
 Therefore, based on these results, the classifier's performance is not very satisfactory, as there are numerous errors present.
 
 ## Classification Metrics
 
 These results represent classification model quality metrics used to assess the accuracy and performance of the model using both original and reduced-dimension data.
 
-According to the "Precision" metric, in 60% of cases where the model predicted a negative event (value 0), the prediction was correct, while in 40% of cases, the predictions were incorrect. Even fewer accurate zeros were predicted using the two-dimension data. However, more accurate ones were predicted compared to using the original data.
-
-Using the original dataset, the "Recall" value indicates that in 46% of cases where the value is truly 0, the model correctly identified it, while in 54% of cases, the predictions were incorrect. The results for the original and reduced-dimension datasets significantly differ in this aspect.
-
-Furthermore, the "F1-score" fluctuates between 52% and 77%, suggesting that the model's performance is moderately satisfactory.
-
-"Accuracy" is an overall metric indicating how many percent of events were correctly classified by the model. In this case, the accuracy is 69%, meaning that the first model correctly classifies only 69% of all events. The second model performs slightly better, with an accuracy of 0.70%.
+These metrics show that the model performed decently on Class 1 (with higher precision, recall, and F1-score), but there's room for improvement in Class 0 where the values are comparatively lower.
 
 **Classification metrics results using original data** 
-|   | Precision | Recall | F1-Score | Support | Accuracy |
-|---|-----------|--------|----------|---------|----------|
-| 0 |   0.83    |  0.54  |   0.66   |   114   | 0.79     |
-| 1 |   0.78    |  0.93  |   0.85   |   197   |          |
+|    | Precision | Recall  | F1-Score | Support |
+|----|-----------|---------|----------|---------|
+| 0  | 0.63      | 0.61    | 0.62     | 114     |
+| 1  | 0.78      | 0.80    | 0.79     | 197     |
+|    |           |         |          |         |
+| Accuracy |       |         | 0.73     | 311     |
+
+
+In this case, the model's performance seems to have improved across both classes, with increased precision, recall, and F1-score for Class 0 and notably improved recall for Class 1. The overall accuracy has also slightly increased.
 
 **Classification metrics results using two-dimensional data** 
-|           | precision | recall | f1-score | support | Accuracy |
-|-----------|-----------|--------|----------|---------|----------|
-|       0   |    0.58   |  0.66  |   0.61   |   114   | 0.70     |
-|       1   |    0.78   |  0.72  |   0.75   |   197   |          |
- 
+|    | Precision | Recall  | F1-Score | Support |
+|----|-----------|---------|----------|---------|
+| 0  | 0.58      | 0.66    | 0.61     | 114     |
+| 1  | 0.78      | 0.72    | 0.75     | 197     |
+|    |           |         |          |         |
+| Accuracy |       |         | 0.70     | 311     |
 
 In summary, the overall quality of the models is not good, as there are many incorrect predictions and the accuracy is moderate.
 
 ## ROC Curve
 
-Visualizing the graphical representation, the ROC curve illustrates how classifier predictions change based on the decision threshold (refer to Figure 8). AUC is an evaluation metric that measures how well a classifier can distinguish between positive and negative values. Our AUC result is 0.7389 and 0.6893, when using the classifier for original data and two-dimensional data. This indicates that the classifier has a moderate ability to distinguish between the two classes. The results are satisfactory, but not sufficiently high to consider the models highly successful.
+Visualizing the graphical representation, the ROC curve illustrates how classifier predictions change based on the decision threshold (refer to Figure 8). AUC is an evaluation metric that measures how well a classifier can distinguish between positive and negative values. Our AUC result is 0.70, when using the classifier for original data and two-dimensional data too. This indicates that the classifier has a moderate ability to distinguish between the two classes. The results are satisfactory, but not sufficiently high to consider the models highly successful.
 
-![image](https://github.com/Voleisho/Airbnb-Client-Rating-Prediction/assets/141240910/8b545263-c34d-4d2a-b0e5-a97549c8376a)
+![image](https://github.com/Voleisho/Airbnb-Client-Rating-Prediction/assets/141240910/78cd864d-77cb-4a7a-888d-8025feb2796b)
 
 
-![image](https://github.com/Voleisho/Airbnb-Client-Rating-Prediction/assets/141240910/22b346dc-ebf0-4186-a7f2-cfc15a46f4c1)
+
+![image](https://github.com/Voleisho/Airbnb-Client-Rating-Prediction/assets/141240910/1eeaf84f-a5c6-4638-9b78-17e62c1dcba7)
+
