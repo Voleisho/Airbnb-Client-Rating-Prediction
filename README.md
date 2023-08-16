@@ -238,3 +238,9 @@ Visualizing the graphical representation, the ROC curve illustrates how classifi
 
 ![image](https://github.com/Voleisho/Airbnb-Client-Rating-Prediction/assets/141240910/1eeaf84f-a5c6-4638-9b78-17e62c1dcba7)
 
+# Conclusion
+
+In comparing the two models—one built on the original normalized dataset and the other on the same dataset reduced to two dimensions using t-SNE—it's evident that the model utilizing the original normalized dataset yields more favorable outcomes. This suggests that the comprehensive information captured by the original dataset contributes to a more accurate representation of the underlying patterns within the data.
+
+In summary, the model built with the original normalized dataset stands out as the preferred choice due to its superior performance compared to the model trained on the reduced two-dimensional dataset.
+
